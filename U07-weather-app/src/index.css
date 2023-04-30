@@ -1,9 +1,7 @@
 body {
   margin: 0;
-  font-family: "Roboto", arial !important;
-  -webkit-font-smoothing: antialased;
-  -maz-osx-font-smoothing: grayscale;
-  background-color: #d5d4d4;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: white;
 }
 
 
