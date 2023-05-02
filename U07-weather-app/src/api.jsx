@@ -1,17 +1,17 @@
 // eslint-disable-next-line no-unused-vars
 import Search from "./components/search/search.jsx";
 
-export const geoApiOptions = {
-	method: 'GET',
-	headers: {
-		'content-type': 'application/octet-stream',
-		'X-RapidAPI-Key': '13a86c5577msh60c0b7ffea9cb43p138e01jsn203003c43fa9',
-		'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com'
-	}
-};
+//export const geoApiOptions = {
+	//method: 'GET',
+	//headers: {
+		//'content-type': 'application/octet-stream',
+		//'X-RapidAPI-Key': '0999628d2bmsh86e796947f5ed42p1fc970jsn7ac46891bc82',
+		//'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com'
+	//}
+//};
 
- export const GEO_API_URL = "https://wft-geo-db.p.rapidapi.com/v1/geo/adminDivisions";
+ export const GEO_API_URL = "http://api.weatherapi.com/v1/current.json?key=";
  export const WEATHER_API_URL ="https://api.openweathermap.org/data/2.5";
- export const WEATHER_API_KEY ="67fd52268bf758ad864453f587a8bbf7";
+ export const WEATHER_API_KEY ="a663d8add08c48ab98e184915230205";
 
 
