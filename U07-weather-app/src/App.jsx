@@ -1,44 +1,50 @@
-import "./App.css";
-import Search from "./components/search/search.jsx";
-import Currentweather from "./components/currentweather/currentweather";
-import {GEO_API_URL , WEATHER_API_KEY } from "./api";
 import { useState } from "react";
+import "./App.css";
+import CurrentWeather from "./components/currentweather/currentweather";
+
+
 
 function App() {
-  const [currentWeather, setCurrentWeather] = useState(null);
-  const [forecast, setForecast] = useState(null);
+  const [weatherData, setWeatherData] = useState(null);
 
-  const handleOnSearchChange = (searchData) => {
-    const [lat, lon] = searchData.value.split(" ");
 
-    const currentWeatherFetch = fetch(
-      //`${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}`
-      `${GEO_API_URL}${WEATHER_API_KEY}&q=${lat},${lon}&days=7&aqi=no&alerts=no`
-    );
-    const forecastFetch = fetch(
-      //`${WEATHER_API_URL}/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}`
-      `${GEO_API_URL}${WEATHER_API_KEY}&q=${lat},${lon}&days=7&aqi=no&alerts=no`
+  const weatherUrl = (city) => `https://api.weatherapi.com/v1/forecast.json?key=a663d8add08c48ab98e184915230205&q=${city}&days=7&aqi=no&alerts=no`;
 
-    );
+  const handleLocationClick = async () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(async (position) => {
+        const lat = position.coords.latitude;
+        const lng = position.coords.longitude;
+        const curPosition = lat + "," + lng;
 
-    Promise.all([currentWeatherFetch, forecastFetch])
-      .then(async (Response) => {
-        const weatherResponse = await Response[0].json();
-        const forecastRespone = await Response[1].json();
-
-        setCurrentWeather({ city: searchData.label, ...weatherResponse });
-        setForecast({ city: searchData.label, ...forecastRespone });
-      })
-      .catch((err) => console.log(err));
+        const resp = await fetch(weatherUrl(curPosition));
+        const data = await resp.json();
+        setWeatherData(data);
+      });
+    }
   };
 
-  console.log(currentWeather);
-  console.log(forecast);
+  const getCurrentTemp = () => {
+    if (!weatherData) {
+      return null;
+    }
+    return weatherData.current.temp_c;
+  };
+
+  const getCurrentCondition = () => {
+    if (!weatherData) {
+      return null;
+    }
+    return weatherData.current.condition.text;
+  };
 
   return (
-    <div className="container">
-      <Search onSearchChange={handleOnSearchChange} />
-      <Currentweather />
+    <div>
+      <button onClick={handleLocationClick}>Get weather</button>
+      <div>
+        <p>Current temperature: {getCurrentTemp()} C</p>
+        <p>Current condition: {getCurrentCondition()}</p>
+      </div>
     </div>
   );
 }
