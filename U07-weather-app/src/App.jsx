@@ -5,7 +5,6 @@ import CelsiusToFahrenheit from "./CelsiusToFahrenheit";
 
 function celsius() {
   
-  const [weatherData, setWeatherData] = useState(null);
 
   const weatherUrl = (city) => `https://api.weatherapi.com/v1/forecast.json?key=a663d8add08c48ab98e184915230205&q=${city}&days=7&aqi=no&alerts=no`;
   
