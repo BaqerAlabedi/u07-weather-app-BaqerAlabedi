@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 
+
 function App() {
   const [weatherData, setWeatherData] = useState(null);
   const [isCelsius, setIsCelsius] = useState(true); // added state for temperature unit
@@ -75,7 +76,7 @@ function App() {
     return weatherData.forecast.forecastday[0].astro.sunset;
   };
 
- 
+
 
   const getCurrenticon = () => {
     if (!weatherData) {
@@ -84,9 +85,11 @@ function App() {
     return weatherData.current.condition.icon;
   };
 
+  // eslint-disable-next-line react/prop-types
+ 
 
 
-
+    
   return (
     <div>
       <button className="getweather" onClick={handleLocationClick}>
@@ -106,7 +109,7 @@ function App() {
         <p className="humidity">Current humidity: {getCurrenthumidity()}</p>
         <p className="wind">Current wind: {getCurrentwind()}</p>
       </div>
-      <div>
+      <div className="S&S">
         <p className="sunrise">sunrise: {getCurrenSunrise()}</p>
         <p className="sunset">sunset: {getCurrenSunset()}</p>
       </div>
