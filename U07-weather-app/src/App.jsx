@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./App.css";
 
-
 function App() {
   const [weatherData, setWeatherData] = useState(null);
   const [isCelsius, setIsCelsius] = useState(true); // added state for temperature unit
@@ -62,6 +61,32 @@ function App() {
     return weatherData.current.wind_mph;
   };
 
+  const getCurrenSunrise = () => {
+    if (!weatherData) {
+      return null;
+    }
+    return weatherData.forecast.forecastday[0].astro.sunrise;
+  };
+
+  const getCurrenSunset = () => {
+    if (!weatherData) {
+      return null;
+    }
+    return weatherData.forecast.forecastday[0].astro.sunset;
+  };
+
+ 
+
+  const getCurrenticon = () => {
+    if (!weatherData) {
+      return null;
+    }
+    return weatherData.current.condition.icon;
+  };
+
+
+
+
   return (
     <div>
       <button className="getweather" onClick={handleLocationClick}>
@@ -73,11 +98,17 @@ function App() {
       <div>
         <p className="location">Current location: {getCurrentlocation()}</p>
         <p className="temperature">
-          Current temperature: {getCurrentTemp()} {isCelsius ? "C°" : "F°"} {/* display the correct temperature unit */}
+          Current temperature: {getCurrentTemp()} {isCelsius ? "C°" : "F°"}{" "}
+          {/* display the correct temperature unit */}
         </p>
+        <img src={`getCurrenticon`}></img>
         <p className="condition">Current condition: {getCurrentCondition()}</p>
         <p className="humidity">Current humidity: {getCurrenthumidity()}</p>
-        <p className="wind">Current wind: {getCurrentwind()} mph</p>
+        <p className="wind">Current wind: {getCurrentwind()}</p>
+      </div>
+      <div>
+        <p className="sunrise">sunrise: {getCurrenSunrise()}</p>
+        <p className="sunset">sunset: {getCurrenSunset()}</p>
       </div>
     </div>
   );
