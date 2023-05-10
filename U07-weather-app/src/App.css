@@ -26,7 +26,8 @@
 .temperature,
 .condition,
 .humidity,
-.wind {
+.wind,
+.hour {
   font-size: 20px;
   margin: 10px 0;
 }
