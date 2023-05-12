@@ -35,7 +35,7 @@
 .temperature {
   font-weight: bold;
 }
-
+.condition,
 .humidity,
 .wind {
   color: #777;
@@ -55,30 +55,38 @@
   background-color: #8fbce6;
   background-image: linear-gradient(to bottom, #8fbce6, #4f94cd);
 }
-.S&S {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #f2f2f2;
-  padding: 10px;
-  border-radius: 5px;
-}
 
 .sunrise,
 .sunset {
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.sunrise {
-  color: #ffc107;
-  margin-right: 10px;
-}
-
-.sunset {
-  color: #ff5722;
+  font-size: 20px;
+  margin: 10px 0;
+  color: #777;
   margin-left: 10px;
 }
+.everything{
+  display: flex;
+  justify-content:space-between;
+  
+}
+.all {
+  background-color: #777;
+  border-radius: 25px;
+  background: #aeb6a3;
+  padding: 20px;
+  width: 200px;
+  height: 450px;
+}
+
+.hour {
+  background-color: #777;
+  border-radius: 25px;
+  background: #aeb6a3;
+  padding: 20px;
+  width: 200px;
+  height: 450px;
+}
+
+
 
 @keyframes logo-spin {
   from {
