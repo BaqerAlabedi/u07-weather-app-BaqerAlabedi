@@ -63,10 +63,9 @@
   color: #777;
   margin-left: 10px;
 }
-.everything{
+.everything {
   display: flex;
-  justify-content:space-between;
-  
+  justify-content: space-between;
 }
 .all {
   background-color: #777;
@@ -86,7 +85,22 @@
   height: 450px;
 }
 
+.day {
+  background-color: #777;
+  border-radius: 25px;
+  background: #aeb6a3;
+  padding: 20px;
+  width: 200px;
+  height: 450px;
+}
 
+.text {
+  font-size: 15px;
+}
+
+.image {
+  font-size: 5px;
+}
 
 @keyframes logo-spin {
   from {
