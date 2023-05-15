@@ -38,7 +38,7 @@
 .condition,
 .humidity,
 .wind {
-  color: #777;
+  color: #fff;
 }
 
 .container {
@@ -60,7 +60,7 @@
 .sunset {
   font-size: 20px;
   margin: 10px 0;
-  color: #777;
+  color: #fff;
   margin-left: 10px;
 }
 .everything {
@@ -68,16 +68,17 @@
   justify-content: space-between;
 }
 .all {
-  background-color: #777;
+  background-color: #2b8a96;
   border-radius: 25px;
   background: #aeb6a3;
   padding: 20px;
   width: 200px;
   height: 450px;
+  justify-content: space-between;
 }
 
 .hour {
-  background-color: #777;
+  background-color: #2b8a96;
   border-radius: 25px;
   background: #aeb6a3;
   padding: 20px;
@@ -111,8 +112,29 @@
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@media (max-width: 425px) {
+  /* Styles for mobile devices */
+  .container {
+    /* Adjust container styles for mobile devices */
   }
+
+  /* Add additional mobile-specific styles here */
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
+  /* Styles for tablets */
+  .container {
+    all: ;
+  }
+
+  /* Add additional tablet-specific styles here */
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Styles for laptops */
+  .container {
+    /* Adjust container styles for laptops */
+  }
+
+  /* Add additional laptop-specific styles here */
 }
