@@ -234,14 +234,14 @@ function App() {
     if (!weatherData) {
       return null;
     }
-    return weatherData.forecast.forecastday[0].date;
+    return weatherData.forecast.forecastday[1].date;
   }
 
   const getCurrentDatetwo = () => {
     if (!weatherData) {
       return null;
     }
-    return weatherData.forecast.forecastday[1].date;
+    return weatherData.forecast.forecastday[2].date;
   }
 
   return (
