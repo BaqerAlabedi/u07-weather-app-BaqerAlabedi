@@ -199,6 +199,51 @@ function App() {
       : weatherData.forecast.forecastday[0].hour[currentHour].temp_f;
   };
 
+  const getCurrentTime = () => {
+    if (!weatherData) {
+      return null;
+    }
+    return weatherData.forecast.forecastday[0].hour[currentHour + 1].time.slice(11);
+  }
+  const getCurrentTimetwo = () => {
+    if (!weatherData) {
+      return null;
+    }
+    return weatherData.forecast.forecastday[0].hour[currentHour + 2].time.slice(11);
+  }
+  const getCurrentTimethree = () => {
+    if (!weatherData) {
+      return null;
+    }
+    return weatherData.forecast.forecastday[0].hour[currentHour + 3].time.slice(11);
+  }
+  const getCurrentTimefour = () => {
+    if (!weatherData) {
+      return null;
+    }
+    return weatherData.forecast.forecastday[0].hour[currentHour + 4].time.slice(11);
+  }
+  const getCurrentTimefive = () => {
+    if (!weatherData) {
+      return null;
+    }
+    return weatherData.forecast.forecastday[0].hour[currentHour + 5].time.slice(11);
+  }
+
+  const getCurrentDate = () => {
+    if (!weatherData) {
+      return null;
+    }
+    return weatherData.forecast.forecastday[0].date;
+  }
+
+  const getCurrentDatetwo = () => {
+    if (!weatherData) {
+      return null;
+    }
+    return weatherData.forecast.forecastday[1].date;
+  }
+
   return (
     <div>
       <button className="getweather" onClick={handleLocationClick}>
@@ -292,25 +337,25 @@ function App() {
             {/* display the correct temperature unit */}
             <p>
               {" "}
-              hour1: {getCurrenthour()}{" "}
+              {getCurrentTime()} : {getCurrenthour()}{" "}
               <img className="image" src={iconURL}></img>{" "}
             </p>
             <p>
-              hour2: {getCurrenthourtwo()}{" "}
+            {getCurrentTimetwo()} :  {getCurrenthourtwo()}{" "}
               <img className="image" src={iconURL}></img>
             </p>
             <p>
-              hour3: {getCurrenthourtree()}{" "}
-              <img className="image" src={iconURL}></img>
-            </p>
-            <p>
-              {" "}
-              hour4: {getCurrenthourfour()}{" "}
+            {getCurrentTimethree()} : {getCurrenthourtree()}{" "}
               <img className="image" src={iconURL}></img>
             </p>
             <p>
               {" "}
-              hour5: {getCurrenthourfive()}{" "}
+              {getCurrentTimefour()} : {getCurrenthourfour()}{" "}
+              <img className="image" src={iconURL}></img>
+            </p>
+            <p>
+              {" "}
+              {getCurrentTimefive()} : {getCurrenthourfive()}{" "}
               <img className="image" src={iconURL}></img>
             </p>
           </div>
@@ -319,7 +364,7 @@ function App() {
           {isCelsius ? "C°" : "F°"} {/* display the correct temperature unit */}
           <p>
             {" "}
-            : {getCurrentDayone()}
+             {getCurrentDate()}: {getCurrentDayone()}
             <img className="image" src={iconURL}></img>{" "}
           </p>
           <p>
@@ -370,7 +415,7 @@ function App() {
           </p>
           <p>
             {" "}
-            : {getCurrentDaytwo()}
+             {getCurrentDatetwo()}: {getCurrentDaytwo()}
             <img className="image" src={iconURL}></img>{" "}
           </p>
           <p>
