@@ -5,9 +5,7 @@ function App() {
   const [weatherData, setWeatherData] = useState(null);
   const [isCelsius, setIsCelsius] = useState(true);
   const [iconURL, seticonURL] = useState(String);
-  const [hourURL, sethourURL] = useState(String);
-
-  const [nexthour, setnextHour] = useState(String);
+  
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
 
   useEffect(() => {
